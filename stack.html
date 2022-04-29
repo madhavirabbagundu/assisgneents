@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    function array(){
+        Object.defineProperty(this,"length",{
+            enumerable:false,
+            writable:true,
+        });
+        for(var index = 0; index < arguments.length; index++){
+            this[index] = arguments[index];
+
+        }
+        this.length = arguments.length;
+
+    }
+
+    array.prototype.push = function(item){
+        let index = this.length
+        this[index] = item;
+        var push_item = this[index]
+        // console.log(push_item)
+        this.length++
+        return push_item;
+    }
+
+    array.prototype.pop = function(item){
+        let index = this.length-1
+        var pop_item = this[index];
+        delete this[index];
+        this.length--;
+        return pop_item;
+    }
+    array.prototype.top = function(item){
+        let index = this.length-1;
+        var top_item = this[index];
+        return top_item;
+
+    }
+    array.prototype.print = function(item){
+        var print_item = []
+    for(var i = 0; i < this.length; i++){
+        print_item.push(this[i])
+    }
+        
+         return print_item;
+    }
+     
+array.prototype.printReversal = function(item){
+    var reversal_item = []
+    for(var i = this.length-1; i >= 0; i--){
+        reversal_item.push(this[i])
+    }
+    return reversal_item;
+}
+
+array.prototype.size = function(item){
+    return this.length;
+
+}
+    
+      
+    
+   
+    const arr = new array(1,2,3,4)
+ var push_item = arr.push(7);
+   
+  console.log("push_item: "+ push_item)
+//   console.log(arr)
+
+   var top_item = arr.top()
+   console.log("top_item is :"+top_item)
+
+  var  pop_item = arr.pop()
+    console.log("pop item is :"+pop_item)
+    // console.log(arr)
+
+
+    var print_item = arr.print()
+    console.log("print item is: "+ print_item)
+
+    var reversal_item = arr.printReversal()
+    console.log("print reversal array is: "+reversal_item)
+
+ var size =  arr.size()
+    console.log("size: "+size)
+
+</script>
