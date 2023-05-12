@@ -1,0 +1,73 @@
+
+<div class="row">
+    <div class="col-12 col-lg-3">
+      <h1 class="h3 mb-3">{{ header }}</h1>
+    </div>
+    <div class="col-12 col-lg-9">
+      <div class="float-right mb-3">
+        <a class="btn btn-square btn-primary btn-lg" routerLink="/interview/add/questions">Add New Question</a>&nbsp;
+      </div>
+    </div>
+  </div>
+  <form>
+    <div class="card">
+      <div class="card-body">
+        <div class="tab-content" id="main_form">
+          <div class="card">
+            <div class="container">
+             
+              <div class="col-md-12">
+  
+  
+                <table class="table table-bordered">
+  
+                  <thead>
+                    <tr>
+                      <th scope="col">S.No</th>
+                      <th scope='col'>Category</th>
+                      <th scope="col">Interview Questions</th>
+                      <th scope="col">Active</th>
+                      <th scope = "col">Passive</th>
+                    </tr>
+                  </thead>
+                  
+                  <tbody *ngFor='let student of filteredData; let i = index '>
+                  
+                    <tr>
+                      <td>{{student.questionId}}</td>
+                      <td>{{student.interviewPriority}}
+                      <td>{{student.interviewQuestion}}</td>
+                      <td>
+                       <input type = "radio" [checked] = "student.interviewActivate == 'Y'">
+                      </td>
+                      <td>
+                       <input type = "radio" [checked] = "student.interviewActivate == 'N'">
+                      </td>
+                    </tr>
+  
+                  </tbody>
+                </table>
+              </div>
+              <!-- <div class="">
+                <div>
+                  <ul class="buttons-wrap">
+                    <li class="action-buttons">
+                      <button type="button" id="continue-button" (click)="saveApplicantInterviewDetails()">
+                        Save
+                      </button>&nbsp;
+                      <button (click)="onBack()">Back</button>
+                    </li>
+                  </ul>
+                </div>
+              </div> -->
+              <!-- <label
+        
+        style="color: red;">Unit Measurement required.</label> -->
+              <!-- </div> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  </form>

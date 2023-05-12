@@ -1,0 +1,40 @@
+// package com.swadha.spashtam.interview.controller;
+
+// import com.swadha.spashtam.admin.entity.WorkflowEventRecord;
+// import com.swadha.spashtam.admin.serviceimpl.WorkflowEventRecordServiceImpl;
+// import com.swadha.spashtam.interview.entity.PanelflowEventSeq;
+// import com.swadha.spashtam.interview.service.PanelflowEventSeqService;
+// import com.swadha.spashtam.validation.ValidateUserAccess;
+// import org.springframework.beans.factory.annotation.Autowired;
+// import org.springframework.http.HttpStatus;
+// import org.springframework.http.ResponseEntity;
+// import org.springframework.web.bind.annotation.*;
+
+// import javax.servlet.http.HttpServletRequest;
+// import java.util.List;
+
+
+// @CrossOrigin
+// @RestController
+// @RequestMapping("/panelflowEvent")
+// public class PanelflowEventSeqController {
+    
+//     @Autowired
+//     private PanelflowEventSeqService panelflowEventSeqService;
+
+//     // @PostMapping("/postpanelNumber")
+//     // public PanelflowEventSeq addPanelflowEventSeq(@RequestBody PanelflowEventSeq panelflowEventSeq, HttpServletRequest request) {
+//     //         // PanelflowEventSeq updatedWorkflowEventSeq = panelflowEventSeqService.addPanelflowEventSeq(panelflowEventSeq,request);
+//     //         return panelflowEventSeqService.addPanelflowEventSeq(panelflowEventSeq);
+        
+//     // }
+   
+//     // @GetMapping("/getpanelNumber")
+//     // public List <PanelflowEventSeq>findAll(){
+
+//     //  System.out.println(panelflowEventSeqService.getPanelflowEvent());
+//     //    return panelflowEventSeqService.getPanelflowEvent();
+//     // }
+
+
+// }

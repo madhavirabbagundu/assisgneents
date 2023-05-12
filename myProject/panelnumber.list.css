@@ -1,0 +1,41 @@
+table {
+    width: 100%;
+  }
+  
+  .mat-header-cell {
+    font-size:15px;
+  }
+  
+  .mat-row-is-clicked {
+    background: #dddddd;
+  }
+  
+  a.disabled{
+    pointer-events: none;
+    cursor: not-allowed;
+  }
+  
+  
+  .mat-row .mat-cell {
+    border-bottom: 1px solid transparent;
+    border-top: 1px solid transparent;
+    cursor: pointer;
+  }
+  
+  @media only screen and (max-width: 600px) {
+  
+    .mat-header-row, .mat-row {
+      width: 280%;
+     }
+    .mainBtn {
+       width: 170px;
+    }
+    .otherBtn {
+      float: right;
+      margin-bottom: 2px;
+      width: 210px;
+    }
+    .mat-table {
+      overflow-y: scroll;
+    } 
+  }

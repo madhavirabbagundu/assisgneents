@@ -1,0 +1,239 @@
+<main class="content">
+    <div class="container-fluid p-0">
+      <div class="container">
+        <div class="row d-flex justify-content-center">
+          <div class="col-md-12">
+            <div class="wizard">
+              <div class="wizard-inner">
+                <div class="connecting-line"></div>
+                <ul class="nav nav-tabs" role="tablist">
+                  <li role="presentation" [class]="wizardStepStyle[0]">
+                    <a href="#step1" data-toggle="tab" aria-controls="step1" role="tab"
+                      [attr.aria-expanded]="wizardStepExpandState[0]">
+                      <span class="round-tab">1</span>
+                      <i>Interview Details<br />
+                      </i>
+                    </a>
+                  </li>
+  
+                  <li role="presentation" [class]="wizardStepStyle[1]">
+                    <a href="#step2" data-toggle="tab" aria-controls="step2" role="tab"
+                      [attr.aria-expanded]="wizardStepExpandState[1]">
+                      <span class="round-tab">2</span>
+                      <i>Preview Page <br />
+                        </i>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+  
+    <form [formGroup]="panelform" (ngSubmit)="submit()" *ngIf="wizardStepExpandState[0]">
+      <div class="card">
+        <div class="card-body">
+          <div class="tab-content" id="main_form">
+            <div class="card">
+              <div class="container">
+                <div class="row align-items-sm-baseline">
+                  <div class="col-md-3">
+                    <label> ApplicationNumber<span class="mandatory">*</span>
+                    </label><br>
+                    <input class="input-deco" type="text"
+                    placeholder="Please Enter ApplicationNumber" formControlName = "applicationNumber" name = "applicationNumber"/>
+                   
+                  </div>
+                  <div class="col-md-3">
+                    <label>ApplicantName<span class="mandatory">
+                        *</span></label><br>
+                    <input class="input-deco" type="text" 
+                      placeholder="Please Enter ApplicantName"formControlName = "applicantName" name = "applicantName"/>
+                  </div>
+                  <div class="col-md-3" *ngIf="interview" >
+                    <label> First Interviewer Name<span class="mandatory">
+                        *</span></label><br>
+                      <div *ngIf="interview?.firstInterviewerName">
+                       <span>{{interview.firstInterviewerName}}</span>
+                          <!-- <label *ngIf = "isLast">(last item)</label> -->
+                      </div>
+                      
+                  </div>
+                  <div class="col-md-3" *ngIf="interview" >
+                      <label>Second Interviewer Name<span class="mandatory">
+                          *</span></label><br>
+                        <div *ngIf="interview?.secondInterviewerName">
+                            <span>{{interview.secondInterviewerName}}</span>
+                            <!-- <label *ngIf = "isLast">(last item)</label> -->
+                        </div>
+                        
+                    </div>
+                </div>
+                <div class="col-md-12">
+    
+    
+                  <table class="table table-bordered">
+    
+                    <thead>
+                      <tr>
+                        <th scope="col">S.No</th>
+                        <th scope='col'>Category</th>
+                        <th scope="col">Interview Questions</th>
+                        <th scope="col">Grade</th>
+                        <th scope = "col">Confirmation</th>
+                      </tr>
+                    </thead>
+                    
+                    <tbody *ngFor='let student of filteredData; let i = index '>
+                    
+                      <tr>
+                        <td>{{student.questionId}}</td>
+                        <td>{{student.interviewPriority}}
+                        <td>{{student.interviewQuestion}}</td>
+                        
+                        <td>
+                          <select class="input-deco"  formControlName = "interviewGrade"name="interviewGrade"
+                          style="appearance: auto;" id="typeOfRoof" >
+                          <option value="null" selected disabled hidden>--Select--</option>
+                          <option *ngFor="let grade of gradesDropDown"  [value]="grade.value">{{grade.label}}
+                          </option>
+                        </select>
+                        </td>
+                        <td>
+                          <input type = "checkbox"  (change) = "selectQuestion(student)" />
+                        </td>
+                      </tr>
+    
+                    </tbody>
+                  </table>
+                </div>
+  
+  
+                 <!-- back data -->
+                   
+  
+  
+  
+  
+  
+                <div class="submit-buttons">
+                  <div>
+                    <ul class="buttons-wrap">
+                      <li class="action-buttons">
+                        <button type="submit" id="continue-button" (click)="changeSection(1)">
+                          Submit
+                        </button>&nbsp;
+                        <!-- <button (click)="onBack()">Back</button> -->
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+    </form>
+   
+    <form *ngIf="wizardStepExpandState[1]">
+      <div class="card">
+        <div class="card-body">
+          <div class="tab-content" id="main_form">
+            <div class="card">
+              <div class="container">
+                <div class="row align-items-sm-baseline">
+                  <div class="col-md-3">
+                    <label> Enter the ApplicationNumber<span class="mandatory">*</span>
+                    </label><br>
+                    <span>{{panelform.get('applicationNumber').value}}</span>
+                  
+                   
+                  </div>
+                  <div class="col-md-3">
+                    <label>Enter the ApplicantName<span class="mandatory">
+                        *</span></label><br>
+                  <span>{{panelform.get('applicantName').value}}</span>
+                  </div>
+                  <div class="col-md-3" *ngIf="interview" >
+                    <label>Enter the First Interviewer Name<span class="mandatory">
+                        *</span></label><br>
+                      <div *ngIf="interview?.firstInterviewerName">
+                          <span>{{interview.firstInterviewerName}}</span>
+                          <!-- <label *ngIf = "isLast">(last item)</label> -->
+                      </div>
+                      
+                  </div>
+                  <div class="col-md-3" *ngIf="interview" >
+                      <label>Enter the First Interviewer Name<span class="mandatory">
+                          *</span></label><br>
+                        <div *ngIf="interview?.secondInterviewerName">
+                            <span>{{interview.secondInterviewerName}}</span>
+                            <!-- <label *ngIf = "isLast">(last item)</label> -->
+                        </div>
+                        
+                    </div>
+                </div>
+                
+                <div class="col-md-12">
+    
+    
+                  <table class="table table-bordered">
+    
+                    <thead>
+                      <tr>
+                        <th scope="col">S.No</th>
+                        <th scope='col'>Category</th>
+                        <th scope="col">Interview Questions</th>
+                        <th scope="col">Grade</th>
+                        <!-- <th scope = "col">Confirmation</th> -->
+                      </tr>
+                    </thead>
+                    
+                    <tbody *ngFor='let preview of previewData; let i = index '>
+                    
+                      <tr>
+                        <td>{{preview.questionId}}</td>
+                        <td>{{preview.interviewPriority}}
+                        <td>{{preview.interviewQuestion}}</td>
+                        <td>{{preview.interviewGrade}}</td>
+                        <!-- <td>
+                          <select class="input-deco" name="interviewGrade"
+                          style="appearance: auto;" id="typeOfRoof">
+                          <option value="null" selected disabled hidden>--Select--</option>
+                          <option *ngFor="let grade of gradesDropDown" [value]="grade.value">{{grade.label}}
+                          </option>
+                        </select>
+                        </td> -->
+                       
+                      </tr>
+    
+                    </tbody>
+                  </table>
+                </div>
+                <div class="">
+                  <div>
+                    <ul class="buttons-wrap">
+                      <li class="action-buttons">
+                        <button type="button" id="continue-button" (click) = "savePanelDetail()">
+                          Submit
+                        </button>&nbsp;
+                        <button (click)="changeSection(1)">Back</button>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+    </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  
+                

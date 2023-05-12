@@ -1,0 +1,67 @@
+   
+<!-- <form> -->
+
+<!-- </form> -->
+<form [formGroup]="panelform">
+    <div class="card">
+      <div class="card-body">
+        <div class="tab-content" id="main_form">
+          
+          <div class="card">
+            <div class="container">
+              <div class="row align-items-sm-baseline">
+                <div class="col-md-3">
+                  <label>Enter the First Interviewer Name<span class="mandatory">
+                      *</span></label><br>
+                  <input class="input-deco" type="text" formControlName = "firstInterviewerName"
+                    placeholder="Please Enter firstInterviewerName" />
+                </div>
+                
+                <div class="col-md-3">
+                  <label>Enter the second Interviewer Name<span class="mandatory">
+                      *</span></label><br>
+                  <input class="input-deco" type="text"
+                    placeholder="Please Enter secondInterviewerName" formControlName = "secondInterviewerName" />
+                </div>
+                <div class="col-md-3">
+                    <label>Enter the Date Interviewer<span class="mandatory">
+                        *</span></label><br>
+                    <input class="input-deco" type="date"
+                      placeholder="Please Enter IntervieweDate" formControlName = "interviewDate"/>
+                  </div>
+                  <div class="col-md-3">
+                    <label>Enter the state of Interview<span class="mandatory">
+                        *</span></label><br>
+                        <select class="input-deco" formControlName = "stateOfInterviewer">
+                            <option value="null" selected>--Select--</option>
+                            <option value=andhra>Andhra Pradesh</option>
+                            <option value=karnataka>Karnataka</option>
+                            <!-- <option value=2>2</option> -->
+                           
+                          </select>
+                  </div>
+              </div>
+              
+              <div class="">
+                <div>
+                  <ul class="buttons-wrap">
+                    <li class="action-buttons">
+                      <button type="button" id="continue-button" (click)="savePanelDetails()">
+                        Save
+                      </button>&nbsp;
+                      <button (click)="onBack()">Back</button>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <!-- <label
+        
+        style="color: red;">Unit Measurement required.</label> -->
+              <!-- </div> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  </form>
