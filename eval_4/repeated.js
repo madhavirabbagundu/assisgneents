@@ -41,3 +41,7 @@ a[b] = 20;
 a[c] = 40;
 
 console.log(a)
+
+//convert array to objects
+var ar = [3,45,6,7]
+console.log({...ar})
