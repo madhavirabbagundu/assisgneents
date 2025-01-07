@@ -22,3 +22,5 @@ console.log("---------")
 console.log([1,2] == [1,2])
 console.log('' === '')  
 console.log('' == '')  
+console.log({} == {})
+// console.log({} === {})// objects can compare only properties or metods it doesn't compare whiole array or objects
